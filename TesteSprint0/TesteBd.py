@@ -8,20 +8,13 @@ import sys
 import psycopg2
 import pprint
 
+messages = "bom dia!"
+nick = "auahsi"
 
 @get('/')
 @view('index')
 def index():
-    return {'messages': messages, 'nick': nick}
-
-@route('/<nick>')
-@view('index')
-def index(nick='Nobody'):
-    return {'messages': messages, 'nick': nick}
-
-
-
-print ("Content-type: text\html")
+    mk = 1
 
 conn = psycopg2.connect("\
 	dbname='askandtrust'\
@@ -33,3 +26,5 @@ c = conn.cursor()
 c.execute("SELECT * FROM tabela")
 records = c.fetchall()
 print(records)
+
+run(host = 'localhost', port='8080')
