@@ -6,3 +6,16 @@ $ sudo pip3 install bottle requests
 
 Instalar o psycopg2
 $ sudo apt-get install python3-psycopg2 
+
+
+psql -h localhost -U postgres
+
+
+create database askandtrust;
+
+create table tabela( 
+   nome varchar(40) );
+
+insert into tabela values('teste1');
+insert into tabela values('teste2');
+
