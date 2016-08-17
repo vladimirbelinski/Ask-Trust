@@ -14,7 +14,7 @@ nick = "auahsi"
 @get('/')
 @view('index')
 def index():
-    mk = 1
+    mk = 3
 
 conn = psycopg2.connect("\
 	dbname='askandtrust'\
