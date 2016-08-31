@@ -1,0 +1,14 @@
+Imagem:
+* Fundo biblioteca (modelo 8)
+
+Esquema de cores:
+
+#fafafa grey lighten-5		(fundo)
+#37474f blue-grey darken-3	(botões...)
+
+Letras:
+
+Título: League Spartan
+Subtítulo: Montserrat
+Corpo: Montserrat
+

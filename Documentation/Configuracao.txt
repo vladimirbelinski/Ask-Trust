@@ -10,8 +10,9 @@ $ sudo apt-get install python3-psycopg2
 
 psql -h localhost -U postgres
 
-
 create database askandtrust;
+
+\c askandtrust
 
 create table tabela( 
    nome varchar(40) );
