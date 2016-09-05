@@ -18,3 +18,13 @@ create table pergunta (
    userId varchar(11) not null,
    constraint fk_pergunta_usuario foreign key (userId) references usuario(CPF)
 );
+
+create table resposta (
+   idResp serial not null constraint pk_resposta primary key,
+   dataHora date not null,
+   descricaoR text,
+   userId varchar(11) not null,
+   idPerg integer not null,
+   constraint fk_resposta_usuario foreign key (userId) references usuario(CPF),
+   constraint fk_resposta_pergunta foreign key (idPerg) references pergunta(idPerg)
+);
