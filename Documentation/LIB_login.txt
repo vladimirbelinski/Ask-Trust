@@ -1,0 +1,2 @@
+Biblioteca para implementar as seções de usuários.
+https://pypi.python.org/pypi/bottle-session/0.4
