@@ -9,8 +9,8 @@ def index():
 @route('/login',method="POST")
 def formAuth():
     postdata = request.body.read()
-    name = request.forms.get("username")
+    username = request.forms.get("username")
     password = request.forms.get("password")
-    return {}
+    return "username: " + username + "<br/>" + "password: " + password
 
-run(host = 'localhost', port='8000')
+run(host = 'localhost', port='8080')
