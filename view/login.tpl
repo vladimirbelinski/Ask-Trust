@@ -7,7 +7,23 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <meta charset="utf-8">
   </head>
+  <style media="screen">
+    ::-webkit-input-placeholder {
+      color: #37474f !important;
+    }
 
+    :-moz-placeholder { /* Firefox 18- */
+      color: #37474f !important;
+    }
+
+    ::-moz-placeholder {  /* Firefox 19+ */
+      color: #37474f !important;
+    }
+
+    :-ms-input-placeholder {
+      color: #37474f !important;
+    }
+  </style>
   <body>
 
     <div class="container">
@@ -20,14 +36,14 @@
 
               <span class="card-title">Login</span>
 
-              <form>
+              <form action="login" method="POST">
 
                 <div class="row">
                   <div class="input-field col s12">
-                    <input placeholder="Usuário" id="username" type="text" class="validate">
+                    <input placeholder="Usuário" id="username" name="username" type="text" class="validate">
                   </div>
                   <div class="input-field col s12">
-                    <input placeholder="Senha" id="password" type="text" class="validate">
+                    <input placeholder="Senha" id="password" name="password" type="password" class="validate">
                   </div>
                 </div>
 
