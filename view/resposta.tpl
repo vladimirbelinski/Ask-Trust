@@ -19,7 +19,7 @@
 
               <span class="card-title">Responder pergunta</span>
 
-              <form>
+              <form action="login" method="get">
 
                 <div class="row">
                   <div class="input-field col s12">
