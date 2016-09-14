@@ -11,7 +11,7 @@ def server_static(path):
 def index():
     return {}
 
-@route('/login', method="POST")
+@route('/auth', method="POST")
 def formAuth():
     postdata = request.body.read()
     username = request.forms.get("username")
@@ -37,5 +37,7 @@ def resposta():
     resposta = request.forms.get("idResposta")
     print(resposta)
     return {}
+
+
 
 run(host = 'localhost', port='8080')
