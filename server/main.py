@@ -25,16 +25,18 @@ def exibicao():
     return {}
 
 @get('/pergunta')
+@route('/pergunta', method="POST")
 @view('pergunta')
 def pergunta():
-    pergunta = request.forms.get("perg1")
+    pergunta = request.forms.get("perg")
     print(str(pergunta))
     return {}
 
 @get('/resposta')
+@route('/resposta', method="POST")
 @view('resposta')
 def resposta():
-    resposta = request.forms.get("idResposta")
+    resposta = request.forms.get("resp")
     print(resposta)
     return {}
 
