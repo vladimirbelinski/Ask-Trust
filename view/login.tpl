@@ -36,7 +36,7 @@
 
               <span class="card-title">Login</span>
 
-              <form action="login" method="POST">
+              <form action="auth" method="POST">
 
                 <div class="row">
                   <div class="input-field col s12">

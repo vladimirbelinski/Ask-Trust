@@ -1,12 +1,6 @@
-from bottle import run, get, post, view, request, redirect, route
-import json
-from threading import Thread
-import requests
-import time
-from urllib3.exceptions import MaxRetryError
-import sys
-import psycopg2
-import pprint
+from bottle import run, get, post, view, request, redirect, route, static_file
+import bottle_session
+
 
 messages = "bom dia!"
 nick = "auahsi"
