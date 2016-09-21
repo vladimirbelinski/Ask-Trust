@@ -40,9 +40,10 @@ def exibicao():
 @view('pergunta')
 def pergunta():
     pergunta = request.forms.get("perg")
-    c.execute("SELECT * FROM pergunta")
-    palavra = c.fetchall()
-    return dict(palavra = palavra)
+    perg = str(pergunta)
+    c.execute("INSERT INTO  pergunta(datahora, descricaop, userid) VALUES (now(), '{0}', 1);" .format(perg))
+    conn.commit()
+    return dict(palavra = pegcoisas(conn, c))
 
 @get('/resposta')
 @route('/resposta', method="POST")
@@ -51,7 +52,5 @@ def resposta():
     resposta = request.forms.get("resp")
     print(resposta)
     return {}
-
-
 
 run(host = 'localhost', port='8080')
