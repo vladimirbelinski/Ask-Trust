@@ -23,7 +23,7 @@
 
                 <div class="row">
                   <div class="input-field col s12">
-                    <textarea id="idResposta" name = "resp" class="materialize-textarea"></textarea>
+                    <textarea id="idResposta" name = "resp" class="materialize-textarea" required="validate"></textarea>
                     <label for="idResposta">Digite aqui sua resposta:</label>
                   </div>
                 </div>
