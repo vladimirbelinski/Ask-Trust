@@ -1,6 +1,7 @@
 from bottle import run, get, post, view, request, response, redirect, route, static_file
 import bottle_session
 import psycopg2
+from pergunta import *
 
 conn = psycopg2.connect("\
 	dbname='askandtrust'\
@@ -58,7 +59,5 @@ def resposta():
     resposta = request.forms.get("resp")
     print(resposta)
     return {}
-
-
 
 run(host = 'localhost', port='8080')

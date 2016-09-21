@@ -7,23 +7,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <meta charset="utf-8">
   </head>
-  <style media="screen">
-    ::-webkit-input-placeholder {
-      color: #37474f !important;
-    }
-
-    :-moz-placeholder { /* Firefox 18- */
-      color: #37474f !important;
-    }
-
-    ::-moz-placeholder {  /* Firefox 19+ */
-      color: #37474f !important;
-    }
-
-    :-ms-input-placeholder {
-      color: #37474f !important;
-    }
-  </style>
   <body>
 
     <div class="container">

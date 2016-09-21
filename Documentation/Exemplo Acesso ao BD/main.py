@@ -22,7 +22,7 @@ def index():
 
 @route('/auth', method="POST")
 def formAuth():
-    postdata = request.body.read()
+	postdata = request.body.read()
     username = request.forms.get("username")
     password = request.forms.get("password")
     return "username: " + username + "<br/>" + "password: " + password
@@ -53,7 +53,5 @@ def resposta():
     resposta = request.forms.get("resp")
     print(resposta)
     return {}
-
-
 
 run(host = 'localhost', port='8080')
