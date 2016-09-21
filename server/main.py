@@ -1,5 +1,16 @@
 from bottle import run, get, post, view, request, redirect, route, static_file
 import bottle_session
+from pergunta import *
+import psycopg2
+
+conn = psycopg2.connect("\
+	dbname='askandtrust'\
+	user='postgres'\
+	host='localhost'\
+	password='postgres'\
+");
+c = conn.cursor()
+
 
 @route('/static/<path:path>')
 def server_static(path):
@@ -29,8 +40,9 @@ def exibicao():
 @view('pergunta')
 def pergunta():
     pergunta = request.forms.get("perg")
-    print(str(pergunta))
-    return {}
+    c.execute("SELECT * FROM pergunta")
+    palavra = c.fetchall()
+    return dict(palavra = palavra)
 
 @get('/resposta')
 @route('/resposta', method="POST")
