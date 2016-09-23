@@ -33,7 +33,24 @@ def formAuth():
 @get('/exibicao')
 @view('exibicao')
 def exibicao():
-    return {}
+    idPerg = request.query.id
+    if idPerg == "":
+        return template('login')
+    #pergunta = request.forms.get("perg")
+    #perg = str(pergunta)
+    #c.execute("INSERT INTO  pergunta(datahora, descricaop, userid) VALUES (now(), '{0}', 1);" .format(perg))
+    #conn.commit()
+    c.execute("SELECT * FROM pergunta where idPerg = " + idPerg)
+    result = c.fetchall()
+    result = str(result).split(', \'')
+    question = result[1].replace("\'", "")
+    date = result[0].split("(")[2].replace(")", "").split(", ")
+    date = date[2] + '-' + date[1] + '-' + date[0];
+    cpf = result[2].replace(")]", "")
+    c.execute("SELECT email, nome FROM usuario where cpf = \'" + cpf)
+    result = c.fetchall()
+    print(result)
+    return dict(question = question, date = date, id = idPerg)
 
 @get('/pergunta')
 @route('/pergunta', method="POST")

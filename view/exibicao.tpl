@@ -15,21 +15,12 @@
         <div class="col s12 m6">
           <div class="card grey lighten-5">
             <div class="card-content blue-grey-text text-darken-3">
-              <span class="card-title">Pergunta #XXXX</span> <!--informação deve ser extraída da base de dados-->
-              <p>Você sabia que isso é um teste?</p> <!--informação deve ser extraída da base de dados-->
+              <span class="card-title right">#{{id}}</span> <!--informação deve ser extraída da base de dados-->
+              <p class="blue-grey-text text-lighten-3"><font size="1">Por Anônimo em {{date}}</font></p>
+              <p>{{question}}</p> <!--informação deve ser extraída da base de dados-->
             </div>
             <div class="card-action">
-              <a href="#">Responder</a>
-            </div>
-            <div class="card-content blue-grey-text text-darken-3">
-              <span class="card-title">Respostas</span>
-            </div>
-            <!--informações devem ser extraídas da base de dados-->
-            <div class="card-content blue-grey-text text-darken-3">
-              <p>Sim</p>
-            </div>
-            <div class="card-content blue-grey-text text-darken-3">
-              <p>Não</p>
+              <a href="#"><div class="right">Responder</div></a>
             </div>
           </div>
         </div>
