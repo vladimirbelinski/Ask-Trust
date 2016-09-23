@@ -1,7 +1,7 @@
-from bottle import run, get, post, view, request, response, redirect, route, static_file
+from bottle import run, get, post, view, request, redirect, route, static_file
 import bottle_session
-import psycopg2
 from pergunta import *
+import psycopg2
 
 conn = psycopg2.connect("\
 	dbname='askandtrust'\
@@ -10,6 +10,7 @@ conn = psycopg2.connect("\
 	password='postgres'\
 ");
 c = conn.cursor()
+
 
 @route('/static/<path:path>')
 def server_static(path):
@@ -38,19 +39,11 @@ def exibicao():
 @route('/pergunta', method="POST")
 @view('pergunta')
 def pergunta():
-    idPerg = request.query.id
-    #pergunta = request.forms.get("perg")
-    #perg = str(pergunta)
-    #c.execute("INSERT INTO  pergunta(datahora, descricaop, userid) VALUES (now(), '{0}', 1);" .format(perg))
-    #conn.commit()
-    c.execute("SELECT * FROM pergunta where idPerg = " + idPerg)
-    palavra = c.fetchall()
-    palavra = str(palavra).split(', ')
-    print(palavra);
-    return dict(palavra = palavra)
-    # pergunta = request.forms.get("perg")
-    # print(str(pergunta))
-    # return {}
+    pergunta = request.forms.get("perg")
+    perg = str(pergunta)
+    c.execute("INSERT INTO  pergunta(datahora, descricaop, userid) VALUES (now(), '{0}', 1);" .format(perg))
+    conn.commit()
+    return dict(palavra = pegcoisas(conn, c))
 
 @get('/resposta')
 @route('/resposta', method="POST")
