@@ -1,6 +1,7 @@
 from bottle import run, get, post, view, request, redirect, route, static_file, template
 import bottle_session
 from index import *
+from perguntas import *
 from pergunta import *
 from login import *
 
@@ -44,15 +45,6 @@ def exibicao():
     print(answer)
     return dict(question = question, date = date, user = user, id = idPerg, answer = answer)
 
-@get('/pergunta')
-@route('/pergunta', method="POST")
-@view('pergunta')
-def pergunta():
-    pergunta = request.forms.get("perg")
-    perg = str(pergunta)
-    c.execute("INSERT INTO  pergunta(datahora, descricaop, userid) VALUES (now(), '{0}', 1);" .format(perg))
-    conn.commit()
-    return dict(palavra = pegcoisas(conn, c))
 
 @get('/resposta')
 @route('/resposta', method="POST")
