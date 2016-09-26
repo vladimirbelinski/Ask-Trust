@@ -1,4 +1,10 @@
-def pegcoisas(conn, c):
-    c.execute("SELECT * FROM pergunta")
+from bottle import run, get, post, view, request, redirect, route, static_file
+from connect import *
+
+@get('/')
+@get('/perguntas')
+@view('perguntas')
+def index():
+    c.execute("SELECT idperg, descricaop FROM pergunta")
     palavra = c.fetchall()
-    return palavra
+    return dict(palavra = palavra)
