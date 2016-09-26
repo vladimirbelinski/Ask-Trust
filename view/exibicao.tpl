@@ -88,7 +88,11 @@
 
     <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
     <script type="text/javascript" src="/static/materialize.min.js"></script>
-    <script> $(document).ready(function(){$('.modal-trigger').leanModal();} $('.tooltipped').tooltip({delay: 50}););</script>
+    <script>
+    $(document).ready(function(){
+      $('.modal-trigger').leanModal();
+    });
+    </script>
     <!-- <script type="text/javascript">
       function teste() {
         Materialize.toast('I am a toast!', 4000);
