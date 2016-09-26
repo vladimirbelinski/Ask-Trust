@@ -37,16 +37,30 @@
           <div class="card grey lighten-5">
             <div class = "card-content blue-grey-text text-darken-3">
                 <span class="card-title">Respostas</span>
-                <table class="bordered highlight">
+                <ul class="collapsible popout" data-collapsible="expandable">
+                  %flag = 0
+                  %for a in answer:
+                  <li>
+                    %if flag == 0:
+                      <div class="collapsible-header active"><i class="material-icons">description</i>#{{a[0]}} Por {{a[1]}} em {{a[3]}}</div>
+                      % flag = 1
+                    %else:
+                      <div class="collapsible-header"><i class="material-icons">description</i>#{{a[0]}} Por {{a[1]}} em {{a[3]}}</div>
+                    %end
+                    <div class="collapsible-body"><p>{{a[2]}}</p></div>
+                  </li>
+                  %end
+                </ul>
+                <!-- <table class="bordered highlight">
                   <tbody>
                     %for a in answer:
                     <tr>
                         <td>{{a}}</td>
-                        <!-- <\td><i class="tiny material-icons">thumb_up</i></td> -->
+                        <\td><i class="tiny material-icons">thumb_up</i></td>
                     </tr>
                     %end
                   </tbody>
-                </table>
+                </table> -->
               </div>
             </div>
           </div>
@@ -70,7 +84,13 @@
 
     <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
     <script type="text/javascript" src="/static/materialize.min.js"></script>
-    <script> $(document).ready(function(){$('.modal-trigger').leanModal();});</script>
+    <script> $(document).ready(function(){$('.modal-trigger').leanModal();} $('.tooltipped').tooltip({delay: 50}););</script>
+    <!-- <script type="text/javascript">
+      function teste() {
+        Materialize.toast('I am a toast!', 4000);
+
+      }
+    </script> -->
   </body>
 
 </html>

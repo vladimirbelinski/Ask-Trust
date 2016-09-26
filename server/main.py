@@ -51,15 +51,15 @@ def exibicao():
     c.execute("SELECT email, nome FROM usuario where cpf = \'" + cpf + "\'")
     result = c.fetchall()
     user = result[0][1]
-    c.execute("SELECT descricaor FROM resposta where idperg = " + idPerg)
+    c.execute("SELECT R.idresp, U.nome, R.descricaor, R.datahora FROM resposta as R join usuario as U on R.userid = U.cpf where R.idperg = " + idPerg)
     result = c.fetchall()
     print(result)
-    answer = list()
-    for v in result:
-        print(v)
-        answer.append(v[0])
-    print(answer)
-    return dict(question = question, date = date, user = user, id = idPerg, answer = answer)
+    #answer = list()
+    #for v in result:
+    #    print(v)
+#        answer.append((v))
+    #print(answer)
+    return dict(question = question, date = date, user = user, id = idPerg, answer = list(result))
 
 @get('/pergunta')
 @route('/pergunta', method="POST")
