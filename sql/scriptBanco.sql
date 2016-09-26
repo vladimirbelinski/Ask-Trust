@@ -1,4 +1,4 @@
-create database askandtrust;
+create database askandtrust  WITH ENCODING 'UTF-8';
 
 \c askandtrust
 
