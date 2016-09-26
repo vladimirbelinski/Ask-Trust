@@ -10,6 +10,7 @@ def server_static(path):
     return static_file(path, root='static')
 
 @get('/exibicao')
+@route('/exibicao', method="POST")
 @view('exibicao')
 def exibicao():
     idPerg = request.query.id
@@ -19,6 +20,11 @@ def exibicao():
     #perg = str(pergunta)
     #c.execute("INSERT INTO  pergunta(datahora, descricaop, userid) VALUES (now(), '{0}', 1);" .format(perg))
     #conn.commit()
+    resp = request.forms.get("resp")
+    if resp != None:
+        resp = str(resp)
+        c.execute("INSERT INTO  resposta(datahora, descricaoR, userid, idPerg) VALUES (now(), \'" + resp + "\', 1, " + idPerg + ");")
+        conn.commit()
     c.execute("SELECT * FROM pergunta where idPerg = " + idPerg)
     result = c.fetchall()
     if len(result) != 1:
