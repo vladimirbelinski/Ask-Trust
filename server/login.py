@@ -6,9 +6,8 @@ import bottle_session
 def index():
     return {}
 
-@route('/login',method="POST")
+@route('/auth',method="POST")
 def formAuth():
-    postdata = request.body.read()
     username = request.forms.get("username")
     password = request.forms.get("password")
     return "username: " + username + "<br/>" + "password: " + password
@@ -16,5 +15,3 @@ def formAuth():
 @route('/static/<filename>')
 def server_static(filename):
     return static_file(filename, root='./static/')
-
-run(host = 'localhost', port='8080')
