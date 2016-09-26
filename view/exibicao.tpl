@@ -69,17 +69,21 @@
     </div>
 
     <div id="resp" class="modal">
-      <div class="modal-content">
-        <form class="col s12">
+      <form action="exibicao?id={{id}}" method="post">
+        <div class="row">
           <div class="input-field col s12">
-            <textarea id="textarea1" class="materialize-textarea" placeholder="Resposta"></textarea>
-            <!-- <label for="textarea1">Textarea</label> -->
+            <textarea id="resp" name = "resp" class="materialize-textarea" required="validate"></textarea>
+            <label for="resp">Digite aqui sua resposta:</label>
           </div>
-        </form>
-      </div>
-      <div class="modal-footer">
-        <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat">Enviar</a>
-      </div>
+        </div>
+        <div class="row">
+          <center>
+            <button class="btn waves-effect waves-light blue-grey darken-3 grey-text text-lighten-5" type="submit" name="action">Responder
+              <i class="material-icons right">send</i>
+            </button>
+          </center>
+        </div>
+      </form>
     </div>
 
     <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
