@@ -1,4 +1,4 @@
-from bottle import run, get, post, view, request, redirect, route, static_file
+from bottle import run, get, post, view, request, redirect, route, static_file, template
 import bottle_session
 from pergunta import *
 import psycopg2
@@ -42,15 +42,24 @@ def exibicao():
     #conn.commit()
     c.execute("SELECT * FROM pergunta where idPerg = " + idPerg)
     result = c.fetchall()
-    result = str(result).split(', \'')
-    question = result[1].replace("\'", "")
-    date = result[0].split("(")[2].replace(")", "").split(", ")
-    date = date[2] + '-' + date[1] + '-' + date[0];
-    cpf = result[2].replace(")]", "")
-    c.execute("SELECT email, nome FROM usuario where cpf = \'" + cpf)
+    if len(result) != 1:
+        return template('login')
+    question = result[0][2];
+    date = str(result[0][1]).split("-")
+    date = date[2] + '-' + date[1] + '-' + date[0]
+    cpf = result[0][3]
+    c.execute("SELECT email, nome FROM usuario where cpf = \'" + cpf + "\'")
+    result = c.fetchall()
+    user = result[0][1]
+    c.execute("SELECT descricaor FROM resposta where idperg = " + idPerg)
     result = c.fetchall()
     print(result)
-    return dict(question = question, date = date, id = idPerg)
+    answer = list()
+    for v in result:
+        print(v)
+        answer.append(v[0])
+    print(answer)
+    return dict(question = question, date = date, user = user, id = idPerg, answer = answer)
 
 @get('/pergunta')
 @route('/pergunta', method="POST")
