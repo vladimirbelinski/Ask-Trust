@@ -22,13 +22,43 @@
           </div>
         </div>
         %end
-        <a href = "pergunta"  class="btn-floating btn-large waves-effect waves-light red"><i class="material-icons">add</i></a>
+      </div>
+
+      <div class="fixed-action-btn click-to-toggle" style="bottom: 45px; right: 24px;">
+       <a href="#novaperg" class="btn-floating btn-large red modal-trigger">
+         <i class="large material-icons">add</i>
+       </a>
+      </div>
+    </div>
+
+    <div id="novaperg" class="modal">
+      <div class="modal-content">
+        <form action="#" method="post">
+          <div class="row">
+            <div class="input-field col s12">
+              <textarea id="idPergunta" name = "perg" class="materialize-textarea"></textarea>
+              <label for="idPergunta">Digite aqui sua pergunta:</label>
+            </div>
+          </div>
+          <div class="row">
+            <center>
+              <button class="btn waves-effect waves-light blue-grey darken-3 grey-text text-lighten-5" type="submit" name="action">Perguntar
+                <i class="material-icons right">send</i>
+              </button>
+            </center>
+          </div>
+        </form>
       </div>
     </div>
 
     <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
     <script type="text/javascript" src="/static/materialize.min.js"></script>
-
+    <script>
+    $(document).ready(function(){
+      // the "href" attribute of .modal-trigger must specify the modal ID that wants to be triggered
+      $('.modal-trigger').leanModal();
+    });
+    </script>
   </body>
 
 </html>
