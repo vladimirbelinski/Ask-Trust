@@ -13,11 +13,11 @@
     <div class="container">
       <div class="row">
         %for p in palavra:
-        <div class="col s4">
+        <div class="col s12">
           <div class="card grey lighten-5">
             <div class="card-content blue-grey-text text-darken-3">
               <span class="card-title">Pergunta ID#{{p[0]}}</span>
-              <a href="#"><p>{{p[1]}}</p></a>
+              <p class="bigtext">{{p[1]}}</p>
             </div>
           </div>
         </div>
