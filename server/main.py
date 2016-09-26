@@ -1,11 +1,11 @@
 from bottle import run, get, post, view, request, redirect, route, static_file
 import bottle_session
+from index import *
 
 @route('/static/<path:path>')
 def server_static(path):
     return static_file(path, root='static')
 
-@get('/')
 @get('/login')
 @view('login')
 def index():
