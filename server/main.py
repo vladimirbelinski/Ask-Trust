@@ -9,11 +9,6 @@ from login import *
 def server_static(path):
     return static_file(path, root='static')
 
-@get('/login')
-@view('login')
-def index():
-    return {}
-
 @get('/exibicao')
 @view('exibicao')
 def exibicao():

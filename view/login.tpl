@@ -23,7 +23,7 @@
 
                 <div class="row">
                   <div class="input-field col s12">
-                    <input placeholder="Usuário" id="username" name="username" type="text" class="validate">
+                    <input placeholder="Email" id="username" name="username" type="text" class="validate">
                   </div>
                   <div class="input-field col s12">
                     <input placeholder="Senha" id="password" name="password" type="password" class="validate">
