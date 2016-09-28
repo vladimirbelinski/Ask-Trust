@@ -51,7 +51,8 @@
         </form>
       </div>
     </div>
-
+    <div id="at-footer"></div>
+    <script type="text/javascript" async src="/static/menu.js"></script>
     <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
     <script type="text/javascript" src="/static/materialize.min.js"></script>
     <script>
