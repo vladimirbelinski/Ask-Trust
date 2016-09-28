@@ -10,6 +10,20 @@
   </head>
 
   <body>
+
+    <div class="slider">
+      <ul class="slides">
+        <li>
+          <img src="/static/menu_bg.png" alt="Imagem Fundo Menu Biblioteca e Ponte" height="5%" width="100%">
+          <div class="caption center-align">
+            <br><br>
+            <h1 class="blue-grey-text text-darken-3 menu_text">ASK & TRUST</h1>
+            <h4 class="blue-grey-text text-darken-3 menu_text">UM SISTEMA PARA TUTORIA ACADÊMICA</h4>
+          </div>
+        </li>
+      </ul>
+    </div>
+
     <div class="container">
       <div class="row">
         %for p in palavra:
