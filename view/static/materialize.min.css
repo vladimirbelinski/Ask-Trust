@@ -24,12 +24,12 @@
 
  @font-face {
    font-family: leaguespartan;
-   src: url('league-spartan-master/LeagueSpartan-Bold.otf');
+   src: url('LeagueSpartan-Bold.otf');
  }
 
  @font-face {
    font-family: montserrat;
-   src: url('montserrat/Montserrat-ExtraLight.otf');
+   src: url('Montserrat-ExtraLight.otf');
  }
 
  h1.menu_text {
