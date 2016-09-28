@@ -16,7 +16,7 @@ def server_static(path):
 def exibicao():
     idPerg = request.query.id
     if idPerg == "":
-        return template('login')
+        return redirect('login')
     resp = request.forms.resp
     if resp != "":
         resp = str(resp).replace("\'", "\'\'")
@@ -28,8 +28,7 @@ def exibicao():
         return template('login')
     cpf = result[0][3]
     question = result[0][2]
-    date = str(result[0][1]).split("-")
-    date = date[2] + '-' + date[1] + '-' + date[0]
+    date = str(result[0][1])
     c.execute("SELECT email, nome FROM usuario where cpf = \'" + cpf + "\'")
     result = c.fetchall()
     user = result[0][1]

@@ -13,7 +13,7 @@ create table usuario (
 
 create table pergunta (
    idPerg serial not null constraint pk_pergunta primary key,
-   dataHora date not null,
+   dataHora timestamp not null,
    descricaoP text,
    userId varchar(11) not null,
    constraint fk_pergunta_usuario foreign key (userId) references usuario(CPF)
@@ -21,7 +21,7 @@ create table pergunta (
 
 create table resposta (
    idResp serial not null constraint pk_resposta primary key,
-   dataHora date not null,
+   dataHora timestamp not null,
    descricaoR text,
    userId varchar(11) not null,
    idPerg integer not null,
