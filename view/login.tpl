@@ -12,40 +12,28 @@
     <div class="container">
       <div class="row">
         <div class="col s6 offset-s3">
-
           <div class="card grey lighten-5">
-
             <div class="card-content blue-grey-text text-darken-3">
-
               <span class="card-title">Login</span>
-
               <form action="auth" method="POST">
-
                 <div class="row">
                   <div class="input-field col s12">
-                    <input placeholder="Email" id="username" name="username" type="text" class="validate">
+                    <input placeholder="Email" id="username" name="username" type="text" required="validate">
                   </div>
                   <div class="input-field col s12">
-                    <input placeholder="Senha" id="password" name="password" type="password" class="validate">
+                    <input placeholder="Senha" id="password" name="password" type="password" required="validate">
                   </div>
                 </div>
-
                 <div class="row">
                   <center>
-
                     <button class="btn waves-effect waves-light blue-grey darken-3 grey-text text-lighten-5" type="submit" name="action">Login
                       <i class="material-icons right">send</i>
                     </button>
                   </center>
-
                 </div>
-
               </form>
-
             </div>
-
           </div>
-
         </div>
       </div>
     </div>
