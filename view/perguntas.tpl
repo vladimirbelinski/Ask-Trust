@@ -36,7 +36,7 @@
         <form action="#" method="post">
           <div class="row">
             <div class="input-field col s12">
-              <textarea id="idPergunta" name = "perg" class="materialize-textarea"></textarea>
+              <textarea id="idPergunta" name = "perg" class="materialize-textarea" required="validate"></textarea>
               <label for="idPergunta">Digite aqui sua pergunta:</label>
             </div>
           </div>
