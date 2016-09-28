@@ -18,10 +18,12 @@
               <form action="auth" method="POST">
                 <div class="row">
                   <div class="input-field col s12">
-                    <input placeholder="Email" id="username" name="username" type="text" required="validate">
+                    <input id="username" name="username" type="text" required="validate">
+                    <label for="username">Email</label>
                   </div>
                   <div class="input-field col s12">
-                    <input placeholder="Senha" id="password" name="password" type="password" required="validate">
+                    <input id="password" name="password" type="password" required="validate">
+                    <label for="password">Senha</label>
                   </div>
                 </div>
                 <div class="row">
