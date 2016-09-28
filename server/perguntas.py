@@ -2,7 +2,6 @@
 from bottle import run, get, post, view, request, redirect, route, static_file
 from connect import *
 
-@get('/')
 @get('/perguntas')
 @route('/perguntas', method="POST")
 @view('perguntas')
