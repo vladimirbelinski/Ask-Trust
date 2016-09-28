@@ -4,7 +4,6 @@ from bottle import run, get, post, view, request, redirect, route, static_file, 
 import bottle_session
 from index import *
 from perguntas import *
-from pergunta import *
 from login import *
 
 @route('/static/<path:path>')
