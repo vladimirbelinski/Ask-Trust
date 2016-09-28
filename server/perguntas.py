@@ -2,6 +2,7 @@
 from bottle import run, get, post, view, request, redirect, route, static_file
 from connect import *
 
+@get('/')
 @get('/perguntas')
 @route('/perguntas', method="POST")
 @view('perguntas')
@@ -11,6 +12,6 @@ def index():
         perg = str(perg).replace("\'", "\'\'")
         c.execute("INSERT INTO   pergunta(datahora, descricaop, userid) VALUES (now(), \'" + perg + "\', 1);");
         conn.commit()
-    c.execute("SELECT idperg, descricaop FROM pergunta")
+    c.execute("SELECT P.idperg, P.descricaop, U.nome, P.dataHora FROM pergunta as P join usuario as U on P.userID = U.cpf")
     palavra = c.fetchall()
     return dict(palavra = palavra)
