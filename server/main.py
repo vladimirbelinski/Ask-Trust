@@ -17,7 +17,7 @@ def server_static(path):
 def exibicao():
     idPerg = request.query.id
     if idPerg == "":
-        return template('login')
+        return redirect('login')
     resp = request.forms.resp
     if resp != "":
         resp = str(resp).replace("\'", "\'\'")
