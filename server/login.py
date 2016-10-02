@@ -1,22 +1,30 @@
 from bottle import run, get, post, view, request, redirect, route, static_file, template
 import bottle_session
+import bottle_redis
+import bottle
 from connect import *
 from perguntas import *
 
-@get('/login')
-@view('login')
-def index():
-    return {}
+@bottle.view('login')
+def renderLogin(error):
+    return dict(auth_error = error)
 
-@route('/auth',method="POST")
-def formAuth():
+@bottle.route('/login')
+def index():
+    return renderLogin("")
+
+@bottle.route('/auth',method="POST")
+def formAuth(session):
     username = request.forms.get("username")
     password = request.forms.get("password")
     query = "SELECT * FROM usuario WHERE email = \'%s\' AND senha = \'%s\'"%(username,password)
     c.execute(query)
     result = c.fetchall()
-    return redirect('/perguntas') if c.rowcount > 0 else redirect('/login')
+    if c.rowcount > 0:
+        session['user'] = username
+        return redirect('/perguntas')
+    return renderLogin("Usuário e senha inválidos.")
 
-@route('/static/<filename>')
+@bottle.route('/static/<filename>')
 def server_static(filename):
     return static_file(filename, root='./static/')

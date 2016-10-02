@@ -11,6 +11,8 @@ Biblioteca para implementar as seções de usuários.
 $ sudo pip3 install bottle-session
 $ sudo sudo pip3 install redis
 
+instalar servidor de sessão:
+http://redis.io/topics/quickstart
 
 /*realizar conexão com o banco.*/
 psql -h localhost -U postgres

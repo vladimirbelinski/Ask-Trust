@@ -2,18 +2,28 @@
 # -*- coding: utf-8 -*-
 from bottle import run, get, post, view, request, redirect, route, static_file, template
 import bottle_session
+import bottle_redis
+import bottle
+import redis
 from index import *
-from perguntas import *
+#from perguntas import *
 from login import *
 
-@route('/static/<path:path>')
-def server_static(path):
+app = bottle.app()
+plugin = bottle_session.SessionPlugin(cookie_lifetime=600)
+app.install(plugin)
+
+@bottle.route('/static/<path:path>')
+def server_static(session,path):
     return static_file(path, root='static')
 
-@get('/exibicao')
-@route('/exibicao', method="POST")
-@view('exibicao')
-def exibicao():
+@bottle.view('exibicao')
+def renderExibicao(question,date,user,idPerg,result):
+    return dict(question = question, date = date, user = user, id = idPerg, answer = list(result))
+
+@bottle.route('/exibicao',method="GET")
+@bottle.route('/exibicao', method="POST")
+def exibicao(session):
     idPerg = request.query.id
     if idPerg == "":
         return redirect('login')
@@ -34,15 +44,18 @@ def exibicao():
     user = result[0][1]
     c.execute("SELECT R.idresp, U.nome, R.descricaor, R.datahora FROM resposta as R join usuario as U on R.userid = U.cpf where R.idperg = " + idPerg)
     result = c.fetchall()
-    return dict(question = question, date = date, user = user, id = idPerg, answer = list(result))
+    return renderExibicao(question,date,user,idPerg,result)
 
-
-@get('/resposta')
-@route('/resposta', method="POST")
-@view('resposta')
-def resposta():
-    resposta = request.forms.get("resp")
-    print(resposta)
+@bottle.view('resposta')
+def renderResposta():
     return {}
 
-run(host = 'localhost', port='8081')
+@bottle.route('/resposta',method="GET")
+@bottle.route('/resposta', method="POST")
+def resposta(session):
+    resposta = request.forms.get("resp")
+    print(resposta)
+    return renderResposta()
+
+bottle.debug(True)
+bottle.run(app=app,host='localhost',port=8080)
