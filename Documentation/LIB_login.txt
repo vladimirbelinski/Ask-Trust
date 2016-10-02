@@ -1,3 +1,0 @@
-Biblioteca para implementar as seções de usuários.
-pip3 install bottle-session
-sudo pip3 install redis
