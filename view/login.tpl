@@ -13,6 +13,11 @@
       <div class="row">
         <div class="col s6 offset-s3">
           <div class="card grey lighten-5">
+            <div class="card-content">
+              <p>
+                {{auth_error}}
+              </p>
+            </div>
             <div class="card-content blue-grey-text text-darken-3">
               <span class="card-title">Login</span>
               <form action="auth" method="POST">
