@@ -11,7 +11,6 @@ def renderIndex(palavra):
 
 @bottle.route('/perguntas',method="GET")
 def index(session):
-    print(session['user'])
     perg = request.forms.perg
     if perg != "":
         perg = str(perg).replace("\'", "\'\'")
