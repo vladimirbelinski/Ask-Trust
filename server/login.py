@@ -5,6 +5,14 @@ import bottle
 from connect import *
 from perguntas import *
 
+@bottle.route('/log_out')
+def log_out(session):
+    if session.has_key('user'):
+        del session['user']
+    if session.has_key('user_id'):
+        del session['user_id']
+    return redirect("/index")
+
 @bottle.route('/auth',method="POST")
 def formAuth(session):
     username = request.forms.get("username")
