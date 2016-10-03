@@ -9,6 +9,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   </head>
 
+  <nav>
+    %if login:
+      <div id="at-menu-lo" class = "nav-wrapper blue-grey darken-3"></div>
+    %else:
+      <div id="at-menu-li" class = "nav-wrapper blue-grey darken-3"></div>
+    %end
+  </nav>
+
   <body>
     <div class="container">
       <div class="row">
@@ -59,12 +67,6 @@
     <script type="text/javascript" async src="/static/menu.js"></script>
     <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
     <script type="text/javascript" src="/static/materialize.min.js"></script>
-    <script>
-    $(document).ready(function(){
-      // the "href" attribute of .modal-trigger must specify the modal ID that wants to be triggered
-      $('.modal-trigger').leanModal();
-    });
-    </script>
   </body>
 
 </html>

@@ -9,7 +9,13 @@
   </head>
 
   <body>
-
+    <nav>
+      %if login:
+        <div id="at-menu-lo" class = "nav-wrapper blue-grey darken-3"></div>
+      %else:
+        <div id="at-menu-li" class = "nav-wrapper blue-grey darken-3"></div>
+      %end
+    </nav>
     <div class="container">
       <div class="row">
         <div class="col s12">

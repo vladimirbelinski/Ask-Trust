@@ -12,40 +12,12 @@
 
   <body>
     <nav>
-      <div class="nav-wrapper blue-grey darken-3">
-        <a href="#" class="brand-logo center"><h5 class="grey-text text-lighten-5 logo_text">Ask & Trust</h5></a>
-        <ul id="nav-mobile" class="right hide-on-med-and-down">
-          %if session.has_key('user'):
-            <li><a href="http://localhost:8080/log_out" class="modal-trigger">Log out</a></li>
-          %else:
-            <li><a href="#newlogin" class="modal-trigger">Login</a></li>
-          %end
-        </ul>
-      </div>
+      %if session.has_key('user'):
+        <div id="at-menu-lo" class = "nav-wrapper blue-grey darken-3"></div>
+      %else:
+        <div id="at-menu-li" class = "nav-wrapper blue-grey darken-3"></div>
+      %end
     </nav>
-    <div id="newlogin" class="modal">
-      <div class="modal-content">
-        <form action="auth" method="POST">
-          <div class="row">
-            <div class="input-field col s12">
-              <input id="username" name="username" type="text" required="validate">
-              <label for="username">Email</label>
-            </div>
-            <div class="input-field col s12">
-              <input id="password" name="password" type="password" required="validate">
-              <label for="password">Senha</label>
-            </div>
-          </div>
-          <div class="row">
-            <center>
-              <button class="btn waves-effect waves-light blue-grey darken-3 grey-text text-lighten-5" type="submit" name="action">Login
-                <i class="material-icons right">send</i>
-              </button>
-            </center>
-          </div>
-        </form>
-      </div>
-    </div>
 
     <div class="slider">
       <ul class="slides">
@@ -78,12 +50,6 @@
     <script type="text/javascript" async src="/static/menu.js"></script>
     <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
     <script type="text/javascript" src="/static/materialize.min.js"></script>
-    <script>
-      $(document).ready(function(){
-        // the "href" attribute of .modal-trigger must specify the modal ID that wants to be triggered
-        $('.modal-trigger').leanModal();
-      });
-    </script>
   </body>
 
 </html>
