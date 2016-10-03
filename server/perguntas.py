@@ -15,7 +15,7 @@ def index(session):
     perg = request.forms.perg
     if perg != "":
         perg = str(perg).replace("\'", "\'\'")
-        c.execute("INSERT INTO pergunta(datahora, descricaop, userid) VALUES (now(), \'" + perg + "\', 1);");
+        c.execute("INSERT INTO pergunta(datahora, descricaop, userid) VALUES (now(), \'" + perg + "\', " + session['user_id'] + ");");
         conn.commit()
     c.execute("SELECT P.idperg, P.descricaop, U.nome, P.dataHora FROM pergunta as P join usuario as U on P.userID = U.cpf")
     return renderIndex(c.fetchall(), session)

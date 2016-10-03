@@ -16,11 +16,17 @@
           <div class="card grey lighten-5">
             <div class="card-content blue-grey-text text-darken-3" style="word-wrap: break-word">
               <span class="card-title right">#{{id}}</span>
+              %if login:
               <p class="blue-grey-text text-lighten-3"><font size="1">Por {{user}} em {{date}}</font></p>
+              %end
               <p>{{question}}</p>
             </div>
             <div class="card-action">
-              <a class="modal-trigger" href="#resp"><div class="right">Responder</div></a>
+              %if login:
+                <a class="modal-trigger" href="#resp"><div class="right">Responder</div></a>
+              %else:
+                <a class="modal-trigger disabled" href="#"><div class="right">Responder</div></a>
+              %end
             </div>
             <!-- <div class="card-content blue-grey-text text-darken-3">
               <span class="card-title">Respostas</span>
