@@ -24,11 +24,7 @@ def formAuth(session):
         session['user'] = username
         session['user_id'] = result[0][0]
         return redirect('/perguntas')
-<<<<<<< HEAD
-    return redirect("/index")
-=======
     return redirect("/index?error=1")
->>>>>>> e9ee6701f4b6c536c6ae3be87edd0f1d2769e551
 
 @bottle.route('/static/<filename>')
 def server_static(filename):
