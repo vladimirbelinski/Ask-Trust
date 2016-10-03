@@ -6,8 +6,8 @@ import bottle
 from connect import *
 
 @bottle.view('perguntas')
-def renderIndex(palavra):
-    return dict(palavra = palavra)
+def renderIndex(palavra, session):
+    return dict(palavra = palavra, login = session.has_key('user'))
 
 @bottle.route('/perguntas',method="GET")
 def index(session):
@@ -17,4 +17,4 @@ def index(session):
         c.execute("INSERT INTO pergunta(datahora, descricaop, userid) VALUES (now(), \'" + perg + "\', 1);");
         conn.commit()
     c.execute("SELECT P.idperg, P.descricaop, U.nome, P.dataHora FROM pergunta as P join usuario as U on P.userID = U.cpf")
-    return renderIndex(c.fetchall())
+    return renderIndex(c.fetchall(), session)

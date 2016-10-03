@@ -23,7 +23,7 @@ def formAuth(session):
     if c.rowcount > 0:
         session['user'] = username
         return redirect('/perguntas')
-    return renderLogin("Usuário e senha inválidos.")
+    return renderLogin("Usuário ou senha inválidos.")
 
 @bottle.route('/static/<filename>')
 def server_static(filename):
