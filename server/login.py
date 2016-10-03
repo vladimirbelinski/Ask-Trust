@@ -22,6 +22,7 @@ def formAuth(session):
     result = c.fetchall()
     if c.rowcount > 0:
         session['user'] = username
+        session['user_id'] = result[0][0]
         return redirect('/perguntas')
     return renderLogin("Usuário ou senha inválidos.")
 
