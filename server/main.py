@@ -30,7 +30,7 @@ def exibicao(session):
     resp = request.forms.resp
     if resp != "":
         resp = str(resp).replace("\'", "\'\'")
-        c.execute("INSERT INTO  resposta(datahora, descricaoR, userid, idPerg) VALUES (now(), \'" + resp + "\'," + session['user_id'] + ", " + idPerg + ");")
+        c.execute("INSERT INTO  resposta(datahora, descricaoR, userid, idPerg) VALUES (now(), \'" + resp + "\', \'" + session['user_id'] + "\', " + idPerg + ");")
         conn.commit()
     c.execute("SELECT * FROM pergunta where idPerg = " + idPerg)
     result = c.fetchall()
