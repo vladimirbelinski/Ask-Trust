@@ -14,9 +14,6 @@
         <div class="col s6 offset-s3">
           <div class="card grey lighten-5">
             <div class="card-content">
-              <p>
-                {{auth_error}}
-              </p>
             </div>
             <div class="card-content blue-grey-text text-darken-3">
               <span class="card-title">Login</span>
@@ -47,9 +44,16 @@
 
     <div id="at-footer"></div>
     <script type="text/javascript" async src="/static/menu.js"></script>
-
     <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
     <script type="text/javascript" src="/static/materialize.min.js"></script>
+    <script>
+    $(document).ready(function(){
+      $('.tooltipped').tooltip({delay: 50});
+      %if auth_error != "":
+         Materialize.toast('{{auth_error}}', 4000);
+      %end
+    });
+    </script>
 
   </body>
 

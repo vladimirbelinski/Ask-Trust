@@ -24,17 +24,19 @@
         </div>
         %end
       </div>
-
+      {{login}}
+      %if login:
       <div class="fixed-action-btn click-to-toggle" style="bottom: 45px; right: 24px;">
        <a href="#novaperg" class="btn-floating btn-large amber darken-3 modal-trigger">
          <i class="large material-icons">add</i>
        </a>
       </div>
+      %end
     </div>
 
     <div id="novaperg" class="modal">
       <div class="modal-content">
-        <form action="#" method="post">
+        <form action="perguntas" method="post">
           <div class="row">
             <div class="input-field col s12">
               <textarea id="idPergunta" name = "perg" class="materialize-textarea" required="validate"></textarea>
