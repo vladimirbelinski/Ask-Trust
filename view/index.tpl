@@ -9,8 +9,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   </head>
 
-  <body>
 
+  <body>
     <nav>
       <div class="nav-wrapper blue-grey darken-3">
         <a href="#" class="brand-logo center"><h5 class="grey-text text-lighten-5 logo_text">Ask & Trust</h5></a>
@@ -19,20 +19,6 @@
         </ul>
       </div>
     </nav>
-
-    <div class="slider">
-      <ul class="slides">
-        <li>
-          <img src="/static/menu_bg.png" alt="Imagem Fundo Menu Biblioteca e Ponte" height="5%" width="100%">
-          <div class="caption center-align">
-            <br><br>
-            <h1 class="blue-grey-text text-darken-3 menu_text">ASK & TRUST</h1>
-            <h4 class="blue-grey-text text-darken-3 menu_text">UM SISTEMA PARA TUTORIA ACADÊMICA</h4>
-          </div>
-        </li>
-      </ul>
-    </div>
-
     <div id="newlogin" class="modal">
       <div class="modal-content">
         <form action="auth" method="POST">
@@ -55,6 +41,19 @@
           </div>
         </form>
       </div>
+    </div>
+
+    <div class="slider">
+      <ul class="slides">
+        <li>
+          <img src="/static/menu_bg.png" alt="Imagem Fundo Menu Biblioteca e Ponte" height="5%" width="100%">
+          <div class="caption center-align">
+            <br><br>
+            <h1 class="blue-grey-text text-darken-3 menu_text">ASK & TRUST</h1>
+            <h4 class="blue-grey-text text-darken-3 menu_text">UM SISTEMA PARA TUTORIA ACADÊMICA</h4>
+          </div>
+        </li>
+      </ul>
     </div>
 
     <div class="container">
