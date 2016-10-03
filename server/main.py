@@ -18,8 +18,8 @@ def server_static(session,path):
     return static_file(path, root='static')
 
 @bottle.view('exibicao')
-def renderExibicao(question,date,user,idPerg,result):
-    return dict(question = question, date = date, user = user, id = idPerg, answer = list(result))
+def renderExibicao(question,date,user,idPerg,result, session):
+    return dict(question = question, date = date, user = user, id = idPerg, answer = list(result), login = session.has_key('user'))
 
 @bottle.route('/exibicao',method="GET")
 @bottle.route('/exibicao', method="POST")
@@ -30,7 +30,7 @@ def exibicao(session):
     resp = request.forms.resp
     if resp != "":
         resp = str(resp).replace("\'", "\'\'")
-        c.execute("INSERT INTO  resposta(datahora, descricaoR, userid, idPerg) VALUES (now(), \'" + resp + "\', 1, " + idPerg + ");")
+        c.execute("INSERT INTO  resposta(datahora, descricaoR, userid, idPerg) VALUES (now(), \'" + resp + "\', \'" + session['user_id'] + "\', " + idPerg + ");")
         conn.commit()
     c.execute("SELECT * FROM pergunta where idPerg = " + idPerg)
     result = c.fetchall()
@@ -44,7 +44,7 @@ def exibicao(session):
     user = result[0][1]
     c.execute("SELECT R.idresp, U.nome, R.descricaor, R.datahora FROM resposta as R join usuario as U on R.userid = U.cpf where R.idperg = " + idPerg)
     result = c.fetchall()
-    return renderExibicao(question,date,user,idPerg,result)
+    return renderExibicao(question,date,user,idPerg,result, session)
 
 @bottle.view('resposta')
 def renderResposta():

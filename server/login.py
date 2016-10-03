@@ -5,6 +5,14 @@ import bottle
 from connect import *
 from perguntas import *
 
+@bottle.route('/log_out')
+def log_out(session):
+    if session.has_key('user'):
+        del session['user']
+    if session.has_key('user_id'):
+        del session['user_id']
+    return redirect("/index")
+
 @bottle.route('/auth',method="POST")
 def formAuth(session):
     username = request.forms.get("username")
@@ -14,8 +22,13 @@ def formAuth(session):
     result = c.fetchall()
     if c.rowcount > 0:
         session['user'] = username
+        session['user_id'] = result[0][0]
         return redirect('/perguntas')
+<<<<<<< HEAD
     return redirect("/index")
+=======
+    return redirect("/index?error=1")
+>>>>>>> e9ee6701f4b6c536c6ae3be87edd0f1d2769e551
 
 @bottle.route('/static/<filename>')
 def server_static(filename):

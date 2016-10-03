@@ -15,7 +15,11 @@
       <div class="nav-wrapper blue-grey darken-3">
         <a href="#" class="brand-logo center"><h5 class="grey-text text-lighten-5 logo_text">Ask & Trust</h5></a>
         <ul id="nav-mobile" class="right hide-on-med-and-down">
-          <li><a href="#newlogin" class="modal-trigger">Login</a></li>
+          %if session.has_key('user'):
+            <li><a href="http://localhost:8080/log_out" class="modal-trigger">Log out</a></li>
+          %else:
+            <li><a href="#newlogin" class="modal-trigger">Login</a></li>
+          %end
         </ul>
       </div>
     </nav>

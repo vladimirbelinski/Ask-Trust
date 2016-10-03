@@ -17,14 +17,16 @@
           <div class="card grey lighten-5">
             <div class="card-content blue-grey-text text-darken-3">
               <span class="card-title">Pergunta ID#{{p[0]}}</span>
-              <p class="blue-grey-text text-lighten-3"><font size="1">Por {{p[2]}} em {{p[3]}}</font></p>
+              %if login:
+                <p class="blue-grey-text text-lighten-3"><font size="1">Por {{p[2]}} em {{p[3]}}</font></p>
+              %end
               <a href="exibicao?id={{p[0]}}" class="amber-text text-darken-3"><p class="bigtext">{{p[1]}}</p></a>
             </div>
           </div>
         </div>
         %end
       </div>
-      {{login}}
+      <!-- {{login}} -->
       %if login:
       <div class="fixed-action-btn click-to-toggle" style="bottom: 45px; right: 24px;">
        <a href="#novaperg" class="btn-floating btn-large amber darken-3 modal-trigger">
