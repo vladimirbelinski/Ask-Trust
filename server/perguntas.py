@@ -9,6 +9,7 @@ from connect import *
 def renderIndex(palavra):
     return dict(palavra = palavra)
 
+@bottle.route('/perguntas',method="POST")
 @bottle.route('/perguntas',method="GET")
 def index(session):
     perg = request.forms.perg

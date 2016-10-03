@@ -34,7 +34,7 @@
 
     <div id="novaperg" class="modal">
       <div class="modal-content">
-        <form action="#" method="post">
+        <form action="perguntas" method="post">
           <div class="row">
             <div class="input-field col s12">
               <textarea id="idPergunta" name = "perg" class="materialize-textarea" required="validate"></textarea>
