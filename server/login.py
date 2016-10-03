@@ -5,14 +5,6 @@ import bottle
 from connect import *
 from perguntas import *
 
-@bottle.view('login')
-def renderLogin(error):
-    return dict(auth_error = error)
-
-@bottle.route('/login')
-def index():
-    return renderLogin("")
-
 @bottle.route('/auth',method="POST")
 def formAuth(session):
     username = request.forms.get("username")
@@ -23,7 +15,7 @@ def formAuth(session):
     if c.rowcount > 0:
         session['user'] = username
         return redirect('/perguntas')
-    return renderLogin("Usuário e senha inválidos.")
+    return redirect("/index?error=1")
 
 @bottle.route('/static/<filename>')
 def server_static(filename):
