@@ -21,13 +21,11 @@
               %end
               <p>{{question}}</p>
             </div>
+            %if login:
             <div class="card-action">
-              %if login:
                 <a class="modal-trigger" href="#resp"><div class="right">Responder</div></a>
-              %else:
-                <a class="modal-trigger disabled" href="#"><div class="right">Responder</div></a>
-              %end
             </div>
+            %end
             <!-- <div class="card-content blue-grey-text text-darken-3">
               <span class="card-title">Respostas</span>
             </div>
