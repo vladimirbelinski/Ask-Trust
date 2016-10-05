@@ -14,7 +14,7 @@ function checkLoginError(){
   if(url.length == 2 && url[1] == "error=1"){
     $('#newlogin').openModal();
     $('.tooltipped').tooltip({position:'left',delay: 5000});
-    Materialize.toast('Dados inválidos.', 500000);
+    Materialize.toast('Dados inválidos.', 3000);
   }
 }
 
