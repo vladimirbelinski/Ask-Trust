@@ -28,7 +28,12 @@
               %if login:
                 <p class="blue-grey-text text-lighten-3"><font size="1">Por {{p[2]}} em {{p[3]}}</font></p>
               %end
-              <a href="exibicao?id={{p[0]}}" class="amber-text text-darken-3"><p class="bigtext">{{p[1]}}</p></a>
+              <a href="exibicao?id={{p[0]}}" class="amber-text text-darken-3"><p class="bigtext">
+                %msg = p[1].split('<br>');
+                %for l in msg:
+                  {{l}}<br/>
+                %end
+              </p></a>
             </div>
           </div>
         </div>

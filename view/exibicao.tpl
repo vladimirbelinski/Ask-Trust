@@ -25,7 +25,12 @@
               %if login:
               <p class="blue-grey-text text-lighten-3"><font size="1">Por {{user}} em {{date}}</font></p>
               %end
-              <p>{{question}}</p>
+              <p>
+                %msg = question.split('<br>');
+                %for l in msg:
+                  {{l}}<br/>
+                %end
+              </p>
             </div>
             %if login:
             <div class="card-action">
@@ -57,7 +62,12 @@
                     %else:
                       <div class="collapsible-header"><i class="material-icons">description</i>#{{a[0]}} Por {{a[1]}} em {{a[3]}}</div>
                     %end
-                    <div class="collapsible-body"><p>{{a[2]}}</p></div>
+                    <div class="collapsible-body"><p>
+                      %msg = a[2].split('<br>');
+                      %for l in msg:
+                        {{l}}<br/>
+                      %end
+                    </p></div>
                   </li>
                   %end
                 </ul>
