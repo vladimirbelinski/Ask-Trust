@@ -18,8 +18,15 @@
  :-ms-input-placeholder {
    color: #37474f !important;
  }
+ 
  p.bigtext {
    word-wrap: break-word;
+ }
+
+ .toast{
+   color: #ff8f00 !important;
+   font-weight: bold !important;
+   background-color: #fafafa !important;
  }
 
  @font-face {

@@ -1,10 +1,21 @@
 buildMenu();
 buildFooter();
 buildLogin();
+checkLoginError();
 $(".button-collapse").sideNav();
 $('.modal-trigger').leanModal();
+
 function buildFooter() {
   document.getElementById('at-footer').innerHTML  = "<div id=\'at-login-modal\'></div> <footer class=\"page-footer grey lighten-3\">    <div class=\"container\">      <div class=\"row\">        <div class=\"col s12\">          <p class=\"grey-text text-darken-3\">Trabalho realizado para o Componente Curricular Planejamento e Gestão de Projetos pelos alunos: Alesom Zorzi, João Pedro Winckler Bernardi, Kétly Gonçalves Machado, Matheus Antonio Venancio Dall'Rosa e Vladimir Belinski. </p>        </div>      </div>    </div>    <div class=\"footer-copyright amber darken-3\">      <div class=\"container\">      © 2016 Todos os direitos reservados      </div>    </div>  </footer>";
+}
+
+function checkLoginError(){
+  url = window.location.href.split('?');
+  if(url.length == 2 && url[1] == "error=1"){
+    $('#newlogin').openModal();
+    $('.tooltipped').tooltip({position:'left',delay: 5000});
+    Materialize.toast('Dados inválidos.', 500000);
+  }
 }
 
 function buildMenu() {
